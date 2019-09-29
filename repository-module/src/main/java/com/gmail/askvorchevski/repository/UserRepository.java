@@ -1,6 +1,6 @@
 package com.gmail.askvorchevski.repository;
 
-import com.gmail.askvorchevski.repository.module.User;
+import com.gmail.askvorchevski.repository.model.User;
 
 import java.sql.Connection;
 

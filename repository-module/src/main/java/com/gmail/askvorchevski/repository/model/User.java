@@ -1,4 +1,4 @@
-package com.gmail.askvorchevski.repository.module;
+package com.gmail.askvorchevski.repository.model;
 
 public class User {
     private Integer userId;

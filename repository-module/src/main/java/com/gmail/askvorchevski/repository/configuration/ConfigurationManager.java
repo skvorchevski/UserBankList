@@ -12,7 +12,6 @@ public class ConfigurationManager {
     public static final String DATABASE_USERNAME = "database.username";
     public static final String DATABASE_PWD = "database.password";
 
-
     private ConfigurationManager() {
     }
 

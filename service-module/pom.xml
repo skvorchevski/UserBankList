@@ -17,6 +17,7 @@
     <properties>
         <junit.version>4.11</junit.version>
         <repository-module.version>1.0</repository-module.version>
+        <mySQL-connector.version>8.0.17</mySQL-connector.version>
     </properties>
 
     <dependencies>
@@ -30,6 +31,11 @@
             <groupId>com.gmail.askvorchevski.repository</groupId>
             <artifactId>repository-module</artifactId>
             <version>${repository-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mySQL-connector.version}</version>
         </dependency>
     </dependencies>
 

@@ -1,8 +1,8 @@
 package com.gmail.askvorchevski.repository.impl;
 
 import com.gmail.askvorchevski.repository.AccountRepository;
-import com.gmail.askvorchevski.repository.module.Account;
-import com.gmail.askvorchevski.repository.module.User;
+import com.gmail.askvorchevski.repository.model.Account;
+import com.gmail.askvorchevski.repository.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

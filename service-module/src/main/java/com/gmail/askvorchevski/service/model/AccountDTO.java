@@ -1,9 +1,9 @@
-package com.gmail.askvorchevski.repository.module;
+package com.gmail.askvorchevski.service.model;
 
-public class Account {
+public class AccountDTO {
     private Integer accountId;
     private Integer account;
-    private User user;
+    private UserDTO userDTO;
 
     public Integer getAccountId() {
         return accountId;
@@ -21,20 +21,20 @@ public class Account {
         this.account = account;
     }
 
-    public User getUser() {
-        return user;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
     }
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "AccountDTO{" +
                 "accountId=" + accountId +
                 ", account=" + account +
-                ", user=" + user +
+                ", userDTO=" + userDTO +
                 '}';
     }
 }
