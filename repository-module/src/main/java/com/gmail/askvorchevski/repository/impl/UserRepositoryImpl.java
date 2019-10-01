@@ -30,12 +30,18 @@ public class UserRepositoryImpl implements UserRepository {
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
             preparedStatement.setInt(1, id);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                return getUser(resultSet);
+                if (resultSet.next()) {
+                    return getUser(resultSet);
+                }
+            } catch (SQLException ex) {
+                logger.error("User didn't find by id: " + id, ex);
+                throw new RuntimeException(ex);
             }
         } catch (SQLException e) {
-            logger.error("User didn't find by id: " + id, e);
+            logger.error("Not fount", e);
             throw new RuntimeException(e);
         }
+        return null;
     }
 
     private User getUser(ResultSet resultSet) {

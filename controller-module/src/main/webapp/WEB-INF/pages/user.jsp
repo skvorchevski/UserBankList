@@ -7,16 +7,19 @@
 <body>
 <div>
     <form name="user_info" method="post" action="${pageContext.request.contextPath}/user">
-        <label>
+        <fieldset>
+            <label> ID: </label>
             <input name="id" type="text" placeholder="Enter id"/>
-        </label>
-        <input type="submit">
+            <input type="submit">
+        </fieldset>
     </form>
-    <p> User: <c:out value="user"/></p>
+    <p> User: <c:out value="${user}"/></p>
+
     <form name="account_info" method="get" action="${pageContext.request.contextPath}/user">
-        <label>
-            <input type="submit"/>
-        </label>
+        <fieldset>
+            <label>Show all Accounts</label>
+            <button type="submit">accounts</button>
+        </fieldset>
     </form>
 </div>
 <div>
@@ -31,18 +34,19 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="accounts" accounts="${accounts}">
-        <td><b>${accounts.user.userId}</b></td>
-        <td><b>${accounts.user.name}</b></td>
-        <td><b>${accounts.user.sureName}</b></td>
-        <td><b>${accounts.accountId}</b></td>
-        <td><b>${accounts.account}</b></td>
-        </tr>
+        <c:forEach var="account" items="${accounts}">
+            <tr>
+                <td><b>${account.userDTO.userId}</b></td>
+                <td><b>${account.userDTO.name}</b></td>
+                <td><b>${account.userDTO.sureName}</b></td>
+                <td><b>${account.accountId}</b></td>
+                <td><b>${account.account}</b></td>
+            </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-<p> RichUser: <c:out value="rich_user"></c:out></p>
-<p> SumAccount: <c:out value="sum"></c:out></p>
+<p><b>RichUser: <c:out value="${rich_user}"/></b></p>
+<p><b>SumAccount: <c:out value="${sum}"/></b></p>
 </body>
 </html>

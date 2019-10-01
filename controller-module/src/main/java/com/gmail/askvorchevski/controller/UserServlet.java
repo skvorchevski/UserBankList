@@ -35,24 +35,26 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<AccountDTO> accounts = accountService.findAllAccounts();
         req.setAttribute("accounts", accounts);
-        Class<? extends AccountDTO> maxAccount = accounts.stream()
+        AccountDTO richUser = accounts.stream()
                 .max((o1, o2) -> o1.getAccount().compareTo(o2.getAccount()))
-                .get().getClass();
-        req.setAttribute("rich_user", maxAccount);
+                .get();
+        req.setAttribute("rich_user", richUser);
         int sum = accounts.stream()
                 .mapToInt(AccountDTO::getAccount)
                 .sum();
         req.setAttribute("sum", sum);
-        getServletContext().getRequestDispatcher("/user.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/pages/user.jsp").forward(req, resp);
         logger.info("DoGet method was comlpeted");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getAttribute("id").toString();
-        UserDTO user = userService.getUserDTObyId(Integer.parseInt(id));
-        req.setAttribute("user", user);
-        getServletContext().getRequestDispatcher("/user.jsp").forward(req, resp);
-        logger.info("DoPost method was comlpeted");
+        String id = req.getParameter("id");
+        if (!id.equals("") & Integer.parseInt(id) != 0) {
+            UserDTO user = userService.getUserDTObyId(Integer.parseInt(id));
+            req.setAttribute("user", user);
+            getServletContext().getRequestDispatcher("/WEB-INF/pages/user.jsp").forward(req, resp);
+            logger.info("DoPost method was comlpeted");
+        } else resp.sendRedirect("http://localhost:8080/user");
     }
 }

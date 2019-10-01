@@ -5,6 +5,15 @@ public class UserDTO {
     private String name;
     private String sureName;
 
+    public UserDTO(Integer userId, String name, String sureName) {
+        this.userId = userId;
+        this.name = name;
+        this.sureName = sureName;
+    }
+
+    public UserDTO() {
+    }
+
     public Integer getUserId() {
         return userId;
     }

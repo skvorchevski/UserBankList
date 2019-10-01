@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,11 +39,12 @@ public class DataBaseServiceImpl implements DataBaseService {
     @Override
     public void createDataBase() {
         String myDataBase = null;
-        String resource = Objects.requireNonNull(getClass().getClassLoader().getResource("DataBaseScript.sql")).toString();
+        ClassLoader classLoader = getClass().getClassLoader();
+        File resource = new File(Objects.requireNonNull(classLoader.getResource("DataBaseScript.sql")).getFile());
+//        String resource = Objects.requireNonNull(getClass().getClassLoader().getResource("DataBaseScript.sql")).toString();
         try (Connection connection = connectionService.getConnection()) {
-            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(configurationManager
-                    .getProperty(resource)))) {
-                connection.setAutoCommit(false);
+            connection.setAutoCommit(false);
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(resource))) {
                 StringBuilder stringBuilder = new StringBuilder();
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {

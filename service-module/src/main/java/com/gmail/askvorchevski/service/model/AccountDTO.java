@@ -5,6 +5,15 @@ public class AccountDTO {
     private Integer account;
     private UserDTO userDTO;
 
+    public AccountDTO() {
+    }
+
+    public AccountDTO(Integer accountId, Integer account, UserDTO userDTO) {
+        this.accountId = accountId;
+        this.account = account;
+        this.userDTO = userDTO;
+    }
+
     public Integer getAccountId() {
         return accountId;
     }
