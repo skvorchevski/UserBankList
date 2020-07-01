@@ -18,7 +18,7 @@
         <service-module.version>1.0</service-module.version>
         <jstl.version>1.2</jstl.version>
         <taglibs.version>1.1.2</taglibs.version>
-        <log4j.version>2.11.2</log4j.version>
+        <log4j.version>2.13.3</log4j.version>
     </properties>
 
     <dependencies>
