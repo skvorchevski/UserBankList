@@ -15,7 +15,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <repository-module.version>1.0</repository-module.version>
         <mySQL-connector.version>8.0.17</mySQL-connector.version>
     </properties>
